@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 //                byte[] data = Util.hex2byte("313233343536");
 //            byte[] data = Util.hex2byte("3DE741F445DD357BEA4E6C3FE6437036F62B5E3EC0F00D62796EDB4305ED627F");
 //                byte[] pubKey = Util.hex2byte("4C8E402D8826CB8EEB947328E0D7A7A4E23D96090BCF02D58473159A8C26F831C0140B6A1A3741AB012D9FB0500C370B203CF617EAB882F12241FAC14A989DFE");
-              /*  byte[] pubKey = Util.hex2byte("B5084C6C18A8D4239412AD07968B406CEA7B1B205CBD7C3F6AF4C29052E31EE290E61F6294D25266A00275D63FE03AAEE76316AD957F9BB637EEE83A479FEC60");
+               byte[] pubKey = Util.hex2byte("B5084C6C18A8D4239412AD07968B406CEA7B1B205CBD7C3F6AF4C29052E31EE290E61F6294D25266A00275D63FE03AAEE76316AD957F9BB637EEE83A479FEC60");
                 byte[] r = Util.hex2byte("65115556D4CE26E9249A2DC003DD7462AC2D57807502576C8136CC0578B68565");
                 byte[] s = Util.hex2byte("B68C7566A6B6E888D58FA8AD116C892015DFC629C40401D9CC4AD8C07A8D24D8");
                 int ret = sm2test(
@@ -49,15 +49,15 @@ public class MainActivity extends AppCompatActivity {
                         pubKey,pubKey.length,
                         r,r.length,
                         s,s.length
-                );*/
+                );
             }
 
 
             /*SM4加密*/
             {
-//                byte[] data2 = Util.hex2byte( "31323334353637383132333435363738");
-//                byte[] sm4Key = Util.hex2byte("31323334313233343132333431323334");
-//                sm4Test(data2,data2.length,sm4Key,sm4Key.length);
+                byte[] data2 = Util.hex2byte( "31323334353637383132333435363738");
+                byte[] sm4Key = Util.hex2byte("31323334313233343132333431323334");
+                sm4Test(data2,data2.length,sm4Key,sm4Key.length);
             }
 
             /*SM2 证书解析*/

@@ -74,7 +74,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-//   println((17000+3900+2400)*12)
-//   println((2990+2300+2500+400)*12)
-    println(17+4-26.5-4.5)
+
 }

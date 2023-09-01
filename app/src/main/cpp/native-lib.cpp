@@ -403,7 +403,7 @@ int gmssl_zuctest(){
         if (zuc_encrypt_update(&zuc_ctx, inbuf, strlen((const char *) inbuf), encBuf, &enclen) != OK) {
             return FAILED;
         }
-
+        /*zuc_encrypt_finish: 会将返回长度enclen 置为0？*/
 //         if (zuc_encrypt_finish(&zuc_ctx, encBuf, &enclen) != 1) {
 //            LOGE("zuc_encrypt_finish  %d",ret);
 //            return 1;
@@ -429,6 +429,7 @@ int gmssl_zuctest(){
         if (zuc_decrypt_update(&zuc_ctx, encBuf,enclen, decBuf, &decBufLen) != OK) {
             return FAILED;
         }
+
 
         if (zuc_decrypt_finish(&zuc_ctx, decBuf,  &decBufLen) != OK) {
             return FAILED;
