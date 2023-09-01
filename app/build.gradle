@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.wzw.gmssldemo'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.wzw.gmssldemo"
+        minSdk 16
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        externalNativeBuild {
+
+            cmake {
+                cppFlags "",
+                        "-D_ENABLE_ANDROID_",                   //  用于启用 Android 平台的日志(*)
+//                        "-DDEBUG",                               // 日志开关，发布时需注释
+                        "-std=c++11 -frtti -fexceptions",
+                        "-std=c99",
+                        "-std=gnu99",
+                        "-std=gnu11",
+                        "-std=c11"
+
+                arguments "-DANDROID_TOOLCHAIN=gcc",          // 编译工具链，用gcc,暂不用clang（编译报错，暂不确定问题原因）。
+                        "-DANDROID_STL=stlport_static",       // 标准静态库
+                        "-DANDROID_ARM_MODE=arm",              // 不用thumb
+                        "-DANDROID_PLATFORM=android-19"
+
+
+            }
+            ndk {
+                abiFilters "armeabi-v7a","arm64-v8a"
+//                abiFilters "armeabi-v7a"
+//                abiFilters "armeabi"
+//                abiFilters "arm64-v8a"
+            }
+
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.10.2.4988404'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//   println((17000+3900+2400)*12)
+//   println((2990+2300+2500+400)*12)
+    println(17+4-26.5-4.5)
+}
